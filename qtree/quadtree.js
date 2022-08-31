@@ -1,5 +1,5 @@
 class Point {
-    constructor (x, y, userData ){
+    constructor (x, y, userData){
     this.x = x;
     this.y = y;
     this.userData = userData;
@@ -15,7 +15,7 @@ class Point {
      }
     
      // verifica si este objeto contiene un objeto Punto
-     contains ( point ){
+     contains (point){
             return (
                 (point.x >= (this.x - this.w))
             && (point.x <  (this.x + this.w))
@@ -25,7 +25,7 @@ class Point {
      }
     
      // verifica si este objeto se intersecta con otro objeto Rectangle
-     intersects ( range ){
+     intersects (range){
     		return !(
 			   range.x - range.w > this.x + this.w
 			|| range.x + range.w < this.x - this.w
@@ -37,7 +37,7 @@ class Point {
 
 
 class QuadTree {
-    constructor ( boundary , n){
+    constructor (boundary , n){
         this.boundary = boundary; // Rectangle
         this.capacity = n; // capacidad maxima de cada cuadrante
         this.points = []; // vector , almacena los puntos a almacenar
@@ -95,14 +95,14 @@ class QuadTree {
         this.divided = true;
     }
 
-    insert ( point ){
+    insert (point){
         // Algoritmo
-        // 1: Si el punto no esta en los limites ( boundary ) del quadtree Return
+        // 1: Si el punto no esta en los limites (boundary) del quadtree Return
         if(!this.boundary.contains(point)) {
             return;
         }
         
-        // 2: Si ( this.points.length ) < ( this.capacity ),
+        // 2: Si (this.points.length) < (this.capacity),
         // 2.1 Insertamos en el vector this.points
         // Sino
         // 2.2 Dividimos si aun no ha sido dividido

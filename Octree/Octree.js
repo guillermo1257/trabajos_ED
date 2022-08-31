@@ -18,7 +18,7 @@ class Point {
      }
     
      // verifica si este objeto contiene un objeto Punto
-     contains ( point )
+     contains (point)
      {
         console.log(this.x - this.w);
         console.log(point.x);
@@ -47,7 +47,7 @@ class Point {
      }
     
      // verifica si este objeto se intersecta con otro objeto Cube
-     intersects ( range ){
+     intersects (range){
     		return !(
 			   range.x - range.w > this.x + this.w
 			|| range.x + range.w < this.x - this.w
@@ -62,7 +62,7 @@ class Point {
 
 class Octree
 {
-    constructor ( boundary , n){
+    constructor (boundary , n){
         this.boundary = boundary; // Cube
         this.capacity = n; // capacidad maxima de cada cuadrante
         this.points = []; // vector , almacena los puntos a almacenar
@@ -143,14 +143,14 @@ class Octree
         this.divided = true;
     }
 
-    insert ( point ){
+    insert (point){
         // Algoritmo
-        // 1: Si el punto no esta en los limites ( boundary ) del Octree Return
+        // 1: Si el punto no esta en los limites  boundary) del Octree Return
         if(!this.boundary.contains(point)) {
             return;
         }
         
-        // 2: Si ( this.points.length ) < ( this.capacity ),
+        // 2: Si (this.points.length) < (this.capacity),
             // 2.1 Insertamos en el vector this.points
             // Sino
         // 2.2 Dividimos si aun no ha sido dividido
