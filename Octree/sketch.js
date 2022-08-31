@@ -6,22 +6,16 @@ let ty = 0;
 let tz = 0;
 
 function setup () {
-  createCanvas (1366 ,800, WEBGL) ;
-  let boundary = new Cube (100 ,100 ,100 ,100, 100, 100) ;
-  qt = new OctTree ( boundary , 8) ;
+  createCanvas (1366 ,800, WEBGL);
+  let boundary = new Cube (100 ,100 ,100 ,100, 100, 100);
+  
+  qt = new Octree ( boundary , 4);
 
-  for(let i=0; i < 1000; i ++) {
+  for(let i=0; i < 25; i ++) {
       console.log(i);
-     // tx = Math.random () * 150;
-      //ty = Math.random () * 150;
-      //tz = Math.random () * 150;
-
-      tx=randomGaussian(0, 150);
-      ty=randomGaussian(0, 150);
-      tz=randomGaussian(0, 150);
-
-      //let x = randomGaussian(width/2, width/8);
-      //let y = randomGaussian(height/2, height/8);
+      tx = Math.random () * 150;
+      ty = Math.random () * 150;
+      tz = Math.random () * 150;
 
       // tx = 199;
       // ty = 199;
@@ -37,7 +31,7 @@ function setup () {
 }
 
 function draw () {
-  orbitControl();
+  orbitControl(); //Permite mover la imagen con el mouse
   background (150) ;
   // translate(10, 0, 0);
   // normalMaterial();
