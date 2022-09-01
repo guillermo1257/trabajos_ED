@@ -1,8 +1,8 @@
 class Point {
     constructor (x, y, z, userData) {
-        this.x = x;
-        this.y = y;
         this.z = z; 
+        this.y = y;
+        this.x = x;        
         this.userData = userData;
     }
 }
@@ -143,6 +143,39 @@ class Octree
         this.divided = true;
     }
 
+    show () {
+
+        // stroke (this.boundary.color) ;
+        strokeWeight (5) ;
+        noFill () ;
+        // rectMode ( CENTER );
+        push();
+        translate(this.boundary.x , this.boundary.y , this.boundary.z);
+        box (this.boundary.w * 2 , this.boundary.h*2, this.boundary.d*2) ;
+        pop();
+        if( this.divided ) {
+            this.northeast.show () ;
+            this.northwest.show () ;
+            this.southeast.show () ;
+            this.southwest.show () ;
+            this.b_northeast.show () ;
+            this.b_northwest.show () ;
+            this.b_southeast.show () ;
+            this.b_southwest.show () ;  
+        }
+
+        for (let p of this.points ){
+            push();
+            //let c = color(255, 204, 0);
+            // fill(this.boundary.color);
+            // stroke(this.boundary.color);
+            //Grafica cada punto como una esfera
+            translate(p.x, p.y, p.z);
+            sphere(3,20,20);
+            pop();
+        }
+    }
+    
     insert (point){
         // Algoritmo
         // 1: Si el punto no esta en los limites  boundary) del Octree Return
@@ -176,38 +209,6 @@ class Octree
         }
     }
 
-    show () {
-
-        // stroke (this.boundary.color) ;
-        strokeWeight (5) ;
-        noFill () ;
-        // rectMode ( CENTER );
-        push();
-        translate(this.boundary.x , this.boundary.y , this.boundary.z);
-        box (this.boundary.w * 2 , this.boundary.h*2, this.boundary.d*2) ;
-        pop();
-        if( this.divided ) {
-            this.northeast.show () ;
-            this.northwest.show () ;
-            this.southeast.show () ;
-            this.southwest.show () ;
-            this.b_northeast.show () ;
-            this.b_northwest.show () ;
-            this.b_southeast.show () ;
-            this.b_southwest.show () ;  
-        }
-
-        for (let p of this.points ){
-            push();
-            //let c = color(255, 204, 0);
-            // fill(this.boundary.color);
-            // stroke(this.boundary.color);
-            //Grafica cada punto como una esfera
-            translate(p.x, p.y, p.z);
-            sphere(3,20,20);
-            pop();
-        }
-    }
         
     query(range, found) {
         if(!found) {
