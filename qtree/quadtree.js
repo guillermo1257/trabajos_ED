@@ -17,7 +17,7 @@ class Point {
      // verifica si este objeto contiene un objeto Punto
      contains (point){
             return (
-                (point.x >= (this.x - this.w))
+               (point.x >= (this.x - this.w))
             && (point.x <  (this.x + this.w))
             && (point.y >= (this.y - this.h))
             && (point.y <  (this.y + this.h))
@@ -95,10 +95,28 @@ class QuadTree {
         this.divided = true;
     }
 
-    insert (point){
+    show () {
+        stroke (255) ;
+        strokeWeight (1) ;
+        noFill();
+        rectMode(CENTER);
+        rect ( this.boundary.x , this.boundary.y , this.boundary.w *2 , this.boundary.h*2);
+        if( this.divided ){
+            this.northeast.show();
+            this.northwest.show();
+            this.southeast.show();
+            this.southwest.show();
+        }
+        for (let p of this.points ){
+            strokeWeight (4) ;
+            point (p.x , p.y );
+        }
+    }
+
+    insert(point){
         // Algoritmo
         // 1: Si el punto no esta en los limites (boundary) del quadtree Return
-        if(!this.boundary.contains(point)) {
+        if(!this.boundary.contains(point)){
             return;
         }
         
@@ -113,33 +131,13 @@ class QuadTree {
         else {
             if(!this.divided) {
                 this.subdivide();
-            }           
-            
+            }            
             this.northwest.insert(point);
             this.northeast.insert(point);
             this.southwest.insert(point);
             this.southeast.insert(point);
         }
-    }
-
-    show () {
-        stroke (255) ;
-        strokeWeight (1) ;
-        noFill () ;
-        rectMode ( CENTER );
-        rect ( this.boundary.x , this.boundary.y , this.boundary.w *2 , this.boundary.h*2) ;
-        if( this.divided ) {
-            this.northeast.show () ;
-            this.northwest.show () ;
-            this.southeast.show () ;
-            this.southwest.show () ;
-        }
-
-        for (let p of this.points ){
-            strokeWeight (4) ;
-            point (p.x , p.y );
-        }
-        }
+    }    
         
     query(range, found) {
         if(!found) {

@@ -1,7 +1,7 @@
 let qt;
 let count = 0;
 
-function setup () 
+function setup() 
 {
   createCanvas (400 ,400) ;
   let boundary = new Rectangle (200 ,200 ,200 ,200) ;
@@ -19,8 +19,7 @@ function setup ()
 }
 
 function draw () 
-{
-  
+{  
   if(mouseIsPressed)
   {
     //for(let i=0;;i<1;i++)
@@ -30,27 +29,19 @@ function draw ()
     //}
 
   }
-  background (0) ;
-  qt.show () ;
 
-  stroke (0 ,255 ,0) ;
-  rectMode ( CENTER );
+  background(0) ;
+  qt.show() ;
+
+  stroke(0 ,255 ,0) ;
+  rectMode (CENTER);
 
   let range = new Rectangle ( mouseX ,mouseY ,50 ,50);
-  rect ( range.x , range.y , range.w*2  , range.h*2 ) ;
+  rect (range.x , range.y , range.w*2  , range.h*2) ;
 
   let points = qt.query (range);
-
 
   //stroke(200, 0, 0);
   strokeWeight(1);
   text("Encontro: "+ points.length, (range.x + 3 - range.w), (range.y - 10 - range.h));
-
-
-  //for (let p of points )
- // {
-   // strokeWeight (4) ;
-    //point (p.x , p.y );
-  //}
-  
 }
