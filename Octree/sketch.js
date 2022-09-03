@@ -16,15 +16,6 @@ function setup () {
       tx = Math.random () * 150;
       ty = Math.random () * 150;
       tz = Math.random () * 150;
-
-      // tx = 199;
-      // ty = 199;
-      // tz = -199;
-
-        // console.log(tx);
-        // console.log(ty);
-        // console.log(tz);      
-
       let p = new Point (tx,ty,tz);
       qt.insert(p);
     }
@@ -33,76 +24,5 @@ function setup () {
 function draw () {
   orbitControl(); //Permite mover la imagen con el mouse
   background (150) ;
-  // translate(10, 0, 0);
-  // normalMaterial();
-  //normalMaterial();
-
-  // //qt.show () ;
-  // if (pv == false)
-  // {
-  //   console.log(frameCount);
-  //   for(let i=0; i < 1; i ++) {
-  //     // let p = new Point ( Math.random () * 400 , Math.random () * 400, Math.random () * 400) ;
-  //     //   qt.insert (p);
-  //       tx = Math.random () * 400;
-  //       ty = Math.random () * 400;
-  //       tz = Math.random () * 400;
-  //       console.log(tx);
-  //       console.log(ty);
-  //       console.log(tz);
-  //     }
-  
-  //   if (frameCount % 30 == 0)
-  //   {
-  
-  //   }
-  //   pv = true;
-  //   console.log("1");
-  // }
-
-  // translate(tx, ty, tz);
-  // sphere(5,20,20);  
   qt.show () ;
-
-  // fill(255,0,0,191);
-  // box(180, 80, 80,90,80,90);
-
-  // stroke(0);
-  // noFill();
-  // box(80, 80, 80);
-
-  // translate(100,1,1);
-  // sphere(5,20,20);
-
-  // stroke(250);  
-  // fill(255);
-  // box(180, 80, 80, 1, 1, 1);
-
-  // if ( mouseIsPressed ) {
-
-  //   mx = mouseX
-  //   console.log(mx);
-  //   push();
-  //   // rotateZ(frameCount * 0.01);
-    
-  //   rotateX(mouseX/50);
-  //   rotateY(mouseY/50);
-    
-  //   pop();
-  // }    
- 
-
-  
-
-
-
-
-  // if ( mouseIsPressed ) {
-  // for (let i = 0; i < 1; i ++) {
-  // let m = new Point ( mouseX + random (-5 ,5) , mouseY + random (-5 ,5) );
-  // qt.insert (m)
-  // }
-  // }
-  // background (0) ;
-  // qt.show () ;
 }
